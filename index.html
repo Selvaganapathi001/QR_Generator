@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <p>Please Enter QR Data</p>
+        <input type="text" placeholder="Enter Url" id="qrText">
+        <div id="imgBox">
+            <img src="" id="qrImage">
+        </div>
+        <button id="myButton" onclick="generateQR()">Generate QR</button>
+    </div>
+
+    <script>
+        var button = document.getElementById("myButton");
+        var imgBox = document.getElementById("imgBox");
+
+        function generateQR() {
+            button.classList.add("loading");
+            imgBox.classList.remove("show-img");
+
+            // Simulate a delay for QR generation
+            setTimeout(function () {
+                // Generate the QR code here
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+
+                // After QR generation, remove the loading class and show the QR code
+                button.classList.remove("loading");
+                imgBox.classList.add("show-img");
+            }, 2000);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
